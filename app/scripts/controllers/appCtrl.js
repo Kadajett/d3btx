@@ -7,19 +7,22 @@ app.config(['$httpProvider', function($httpProvider) {
 ]);
 
 app.controller("AppCtrl", function($http){
-// 	$http.get("www.coinbase.com/api/v1/currencies/exchange_rates")
-// 	.success(function(data){
-// 		console.log(data);
-// 	});
+	$http.jsonp("https://coinbase.com/api/v1/prices/spot_rate?currency=USD&callback=JSON_CALLBACK")
+  .success(function(data){
 
+    debugger;
+  })
+  // window.jsonp_callback = function(){
 
-	$http({method: 'html', url: 'http://api.bitcoincharts.com/v1/markets.json'}).
-	success(function(data, status, headers, config) {
-      console.log(JSON.parse(data));
+  // }
+
+	// $http({method: 'get', url: 'www.coinbase.com/api/v1/currencies/exchange_rates?cors=true'}).
+	// success(function(data, status, headers, config) {
+ //      console.log(data);
       
-    }).
-    error(function(data, status, headers, config) {	
-      console.log(data);
+ //    }).
+ //    error(function(data, status, headers, config) {	
+ //      console.log(data);
       
-    });
+ //    });
 });
