@@ -4,7 +4,10 @@
   "dependencies": {
     "bootstrap": "~3.0.3",
     "modernizr": "~2.6.2",
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "angular": "~1.2.13",
+    "angular-route": "~1.2.13",
+    "d3": "~3.4.2"
   },
   "devDependencies": {}
 }
