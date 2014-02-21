@@ -6,12 +6,20 @@ app.config(['$httpProvider', function($httpProvider) {
     }
 ]);
 
-app.controller("AppCtrl", function($http){
-	$http.jsonp("https://coinbase.com/api/v1/prices/spot_rate?currency=USD&callback=JSON_CALLBACK")
-  .success(function(data){
+app.controller("AppCtrl", function($http, $scope){
 
-    debugger;
+  var priceCall = function(){
+	$http.jsonp('https://coinbase.com/api/v1/prices/spot_rate?currency=USD&callback=JSON_CALLBACK')
+  .success(function(data){
+    $scope.price = data.amount;
+    
   })
+}
+
+window.setInterval(
+  priceCall()
+, 1000);
+
   // window.jsonp_callback = function(){
 
   // }
