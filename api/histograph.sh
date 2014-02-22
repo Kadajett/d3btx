@@ -24,9 +24,7 @@ if [[  $currentPriceRounded -ne $oldPrice ]]
 then
 
     oldPrice=$currentPriceRounded;
-    for ((c=0; c<=$currentPriceRounded; c+=10));do echo -e -n "\e[00;31m=\e[00m";done
-    for((c = 0; c <$currentPriceRounded%10; c++ )); do echo -e -n "\e[00;32m=\e[00m";done;
-    printf " $currentPrice \n";
+   	echo "$currentPrice,">>prices.csv;
 fi
 
 
